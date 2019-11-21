@@ -75,9 +75,24 @@
     <form class="form-signin">
       <h1 class="h3 mb-3 font-weight-normal">Culturegrade is now Peoplebox.ai!</h1>
       <p>
-        Go to <a href="https://www.peoplebox.ai/">Peoplebox.ai </a> <span id="counter"></span>
+        Go to <a id="pb-link" href="https://www.peoplebox.ai/">Peoplebox.ai </a> (in <span id="counter">10</span>s)
       </p>
       
     </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        setInterval(function(){ 
+          var counter = $("#counter").html();
+          if (counter == 0) {
+            window.location.href = $("#pb-link").attr("href"); 
+          } else {
+            counter = counter - 1;
+            $("#counter").html(counter);
+          }
+        }, 1000);
+
+      })
+    </script>
 </body>
 </html>
